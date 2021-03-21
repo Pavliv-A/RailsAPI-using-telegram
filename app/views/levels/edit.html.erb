@@ -1,11 +1,13 @@
-<h3> Editing</h3>
-<%= form_for :level, url: level_path(@level), method: :patch do |f|%>
-  <p>
-    Number of levels <br>
-    <%= f.text_field :game_level%>
-  </p>
-  <p>
-    <br>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div style="padding-top: 15px; padding-left: 30px; padding-right: 30px">
+  <h3> Editing</h3>
+  <%= form_for :level, url: level_path(@level), method: :patch do |f|%>
+    <p>
+      Number of levels <br>
+      <%= f.text_field :game_level%>
+    </p>
+    <p>
+      <br>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>
