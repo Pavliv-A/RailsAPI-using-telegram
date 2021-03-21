@@ -1,6 +1,27 @@
-<h3 >Levels list:</h3>
-<p> <%= link_to"Create level", new_level_path %></p>
-<hr>
-<% @level.each do |level| %>
-  <h5>ID: <%= level.id %> -> <%= level.game_level %> <%= link_to  "Edit", level_path(level) %></h5>
-<% end %>
+<div style="padding-top: 15px; padding-left: 30px; padding-right: 30px">
+
+  <p><a class="btn btn-secondary" href="<%= new_level_path %>" role="button">New Game</a></p>
+  <h3>Levels list:</h3>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Levels</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Updated</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @levels.each_with_index do |level, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td><%= level.game_level %></td>
+        <td><a class="btn btn-warning" href="<%= edit_level_path(level) %>" role="button">Edit</a></td>
+        <td><%= level.updated_at %></td>
+        <td class="btn btn-danger"><%= link_to 'Delete', level_path(level), method: :delete %></td>
+      </tr>
+      </tbody>
+    <% end %>
+    </table>
+</div>

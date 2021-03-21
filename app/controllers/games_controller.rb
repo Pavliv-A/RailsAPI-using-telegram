@@ -1,13 +1,9 @@
 class GamesController < ApplicationController
   def index
-    @game = Game.all
+    @games = Game.all
   end
 
   def new; end
-
-  def show
-    @game = Game.find(params[:id])
-  end
 
   def edit
     @game = Game.find(params[:id])
@@ -16,7 +12,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update(game_params)
-      redirect_to @game
+      redirect_to games_path, notice: 'Updated!'
     else
       render 'edit'
     end
@@ -25,13 +21,13 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
-    redirect_to games_path
+    redirect_to games_path, notice: 'Deleted!'
   end
 
   def create
     @game = Game.new(game_params)
     if @game.save
-      redirect_to @game
+      redirect_to games_path
     else
       render 'new'
     end
