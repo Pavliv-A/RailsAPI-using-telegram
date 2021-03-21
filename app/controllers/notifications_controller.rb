@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   require 'net/http'
 
   def index
-    @result = Result.all
+    @results = Result.all
     @index = params[:index].to_i
   end
 
@@ -21,7 +21,7 @@ class NotificationsController < ApplicationController
 
   def send_push(best_result)
     my_token = 'BOT_TOKEN'
-    my_id = 'telegram_id'
+    my_id = 'ID'
     uri = URI('https://api.telegram.org/')
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
