@@ -11,10 +11,31 @@
   </head>
 
   <body>
-<h3> <b>My ROR API</b></h3>
-  <b> <%= link_to"TELEGRAM", root_path %></b>
-  <b><%= link_to"Games", games_path %></b>
-  <b><%= link_to"Levels", levels_path %></b>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="<%= root_path %>">RailsAPI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= root_path %>">TELEGRAM <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= games_path %>">Games</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= levels_path %>">Levels</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <% unless notice.nil? %>
+    <div class="alert alert-success">
+      <a class="alert-link"><%= notice %></a>
+    </div>
+  <% end %>
   <%= yield %>
   </body>
 </html>
