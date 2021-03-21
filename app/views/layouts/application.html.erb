@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MyrorAPI</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<h3> <b>My ROR API</b></h3>
+  <b> <%= link_to"TELEGRAM", root_path %></b>
+  <b><%= link_to"Games", games_path %></b>
+  <b><%= link_to"Levels", levels_path %></b>
+  <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<hr><p> Send push notification to telegram </p>
+<%= link_to"Send best result", best_result_path(index: @index ) %>
+
+<% flash.each do |key, message| %>
+  <p style="color:#ff0000" class="<%= key %>"><%= message %></p>
+<% end %>
+
+<h4>Result---Name</h4>
+<hr>
+<% @result.each do |result| %>
+  <h5><%= result.result %> sec ----> <%= result.sportsman_name %></h5>
+<% end %>

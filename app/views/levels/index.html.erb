@@ -1,0 +1,6 @@
+<h3 >Levels list:</h3>
+<p> <%= link_to"Create level", new_level_path %></p>
+<hr>
+<% @level.each do |level| %>
+  <h5>ID: <%= level.id %> -> <%= level.game_level %> <%= link_to  "Edit", level_path(level) %></h5>
+<% end %>

@@ -1,0 +1,11 @@
+<h3> Creating games </h3>
+<%= form_for :game, url: games_path do |f|%>
+  <p>
+    Name of the game <br>
+    <%= f.text_field :game_name%>
+  </p>
+  <p>
+    <br>
+    <%= f.submit %>
+  </p>
+<% end %>

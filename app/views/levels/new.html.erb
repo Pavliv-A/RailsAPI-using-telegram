@@ -1,0 +1,11 @@
+<h3> Creating levels </h3>
+<%= form_for :level, url: levels_path do |f|%>
+  <p>
+    Number of levels <br>
+    <%= f.text_field :game_level%>
+  </p>
+  <p>
+    <br>
+    <%= f.submit %>
+  </p>
+<% end %>
