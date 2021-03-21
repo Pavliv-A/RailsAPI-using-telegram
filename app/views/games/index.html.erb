@@ -1,6 +1,27 @@
-<h3>Games list:</h3>
-<p> <%= link_to"Create game", new_game_path %></p>
-<hr>
-<% @game.each do |game| %>
-  <h5> GameID: <%= game.id %> -> <%= game.game_name %> <%= link_to  "Edit", game_path(game) %></h5>
-<% end %>
+<div style="padding-top: 15px; padding-left: 30px; padding-right: 30px">
+
+  <p><a class="btn btn-secondary" href="<%= new_game_path %>" role="button">New Game</a></p>
+  <h3>Games list:</h3>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Updated</th>
+        <th scope="col">Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @games.each_with_index do |game, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td><%= game.game_name %></td>
+        <td><a class="btn btn-warning" href="<%= edit_game_path(game) %>" role="button">Edit</a></td>
+        <td><%= game.updated_at %></td>
+        <td class="btn btn-danger"><%= link_to 'Delete', game_path(game), method: :delete %></td>
+      </tr>
+      </tbody>
+      <% end %>
+    </table>
+</div>

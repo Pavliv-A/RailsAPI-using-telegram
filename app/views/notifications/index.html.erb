@@ -1,12 +1,28 @@
-<hr><p> Send push notification to telegram </p>
-<%= link_to"Send best result", best_result_path(index: @index ) %>
+<div style="padding-top: 15px; padding-left: 30px; padding-right: 30px">
+  <h4> Send push notification to telegram </h4>
 
-<% flash.each do |key, message| %>
-  <p style="color:#ff0000" class="<%= key %>"><%= message %></p>
-<% end %>
+  <p><a class="btn btn-secondary" href="<%= best_result_path(index: @index)%>" role="button">Send best result</a></p>
 
-<h4>Result---Name</h4>
-<hr>
-<% @result.each do |result| %>
-  <h5><%= result.result %> sec ----> <%= result.sportsman_name %></h5>
-<% end %>
+  <% flash.each do |key, message| %>
+    <p style="color:#ff0000" class="<%= key %>"><%= message %></p>
+  <% end %>
+
+  <table style="width: 600px" class="table table-sm table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Result</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @results.each_with_index do |result, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td><%= result.sportsman_name %></td>
+        <td><%= result.result %></td>
+      </tr>
+      </tbody>
+    <% end %>
+    </table>
+</div>
