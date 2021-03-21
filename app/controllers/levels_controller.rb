@@ -1,13 +1,9 @@
 class LevelsController < ApplicationController
   def index
-    @level = Level.all
+    @levels = Level.all
   end
 
   def new; end
-
-  def show
-    @level = Level.find(params[:id])
-  end
 
   def edit
     @level = Level.find(params[:id])
@@ -16,7 +12,7 @@ class LevelsController < ApplicationController
   def update
     @level = Level.find(params[:id])
     if @level.update(level_params)
-      redirect_to @level
+      redirect_to levels_path, notice: 'Updated!'
     else
       render 'edit'
     end
@@ -25,13 +21,13 @@ class LevelsController < ApplicationController
   def destroy
     @level = Level.find(params[:id])
     @level.destroy
-    redirect_to levels_path
+    redirect_to levels_path, notice: 'Deleted!'
   end
 
   def create
     @level = Level.new(level_params)
     if @level.save
-      redirect_to @level
+      redirect_to levels_path
     else
       render 'new'
     end
